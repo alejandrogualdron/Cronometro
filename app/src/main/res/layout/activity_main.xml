@@ -8,9 +8,34 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".StopwatchActivity">
-
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Tiempo transcurrido"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textSize="30sp"
+        />
     <TextView
         android:id="@+id/time_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textSize="56sp"
+        />
+    <TextView
+        android:id="@+id/numeroV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Vuelta:"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textSize="30sp"
+        />
+    <TextView
+        android:id="@+id/tvVuelta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

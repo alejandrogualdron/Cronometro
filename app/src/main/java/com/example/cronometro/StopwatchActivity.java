@@ -10,6 +10,7 @@ import java.util.Locale;
 public class StopwatchActivity extends Activity {
 
     private int seconds =0;
+    private int vuelta=0;
     private boolean running;
 
     @Override
@@ -19,6 +20,7 @@ public class StopwatchActivity extends Activity {
         if (savedInstanceState!=null){
             seconds=savedInstanceState.getInt("seconds");
             running =savedInstanceState.getBoolean("running");
+            vuelta=savedInstanceState.getInt("vuelta");
         }
         runTimer();
     }
@@ -26,6 +28,7 @@ public class StopwatchActivity extends Activity {
     //Start the stopwatch running when the start button is clicked
     public void onClickStart(View view){
         running=true;
+        vuelta=vuelta+1;
     }
 
     //Stop the stopwatch running when the stop button is clicked
@@ -41,6 +44,7 @@ public class StopwatchActivity extends Activity {
 
     private void runTimer(){
         final TextView timeView=(TextView)findViewById(R.id.time_view);
+        final TextView tvVuelta=(TextView)findViewById(R.id.tvVuelta);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -50,18 +54,22 @@ public class StopwatchActivity extends Activity {
                 int secs= seconds%60;
                 String time=String.format(Locale.getDefault(),"%d:%02d:%02d",hours,minutes,secs);
                 timeView.setText(time);
+                String vueltaS= String.valueOf(vuelta);
+                tvVuelta.setText(vueltaS);
                 if (running){   //Running is True
                     seconds++;
                 }
                 handler.postDelayed(this,1000);
             }
         });
+
     }
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("seconds",seconds);
         savedInstanceState.putBoolean("running",running);
+        savedInstanceState.putInt("vuelta",vuelta);
     }
 
 }
